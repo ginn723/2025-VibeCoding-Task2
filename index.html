@@ -1,37 +1,446 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
-  </style>
-</head>
-<body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ginn Lee · Frontend Developer 個人品牌網站</title>
+    <meta
+      name="description"
+      content="這是一個前端工程師的個人品牌網站，用來介紹個人背景、技能專長、作品集案例以及聯絡方式，展示網頁開發能力與專案經驗，方便合作夥伴或企業快速了解專業能力。"
+    />
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
-  </footer>
-</body>
+    <style>
+      /* CSS:BASE-START */
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+        line-height: 1.6;
+      }
+
+      .page {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+      }
+
+      a {
+        color: #22d3ee;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+        color: #f8fafc;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        background: #020617;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        z-index: 1000;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #f1f5f9;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        font-size: 0.95rem;
+        color: #cbd5f5;
+      }
+
+      .nav-link:hover {
+        color: #22d3ee;
+      }
+
+      .site-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: 60px;
+        font-size: 0.9rem;
+        color: #94a3b8;
+      }
+
+      /* CSS:BASE-END */
+
+      /* CSS:HERO-START */
+
+      .section-hero {
+        padding-top: 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        margin-bottom: 12px;
+        color: #f8fafc;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+        color: #cbd5f5;
+      }
+
+      .hero-image {
+        margin-top: 12px;
+      }
+
+      /* CSS:HERO-END */
+
+      /* CSS:ABOUT-START */
+
+      .section-about {
+        background: #020617;
+      }
+
+      .about-layout {
+        display: grid;
+        gap: 32px;
+      }
+
+      .about-text {
+        color: #cbd5f5;
+      }
+
+      .about-text p {
+        margin-bottom: 16px;
+      }
+
+      .about-highlights {
+        margin-top: 16px;
+        padding-left: 20px;
+      }
+
+      .about-highlights li {
+        margin-bottom: 8px;
+      }
+
+      .about-actions {
+        margin-top: 24px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: #22d3ee;
+        color: #020617;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .btn-secondary {
+        border: 1px solid #22d3ee;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        color: #22d3ee;
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        opacity: 0.9;
+      }
+
+      .about-image {
+        order: 1;
+      }
+
+      .about-text {
+        order: 2;
+      }
+
+      /* CSS:ABOUT-END */
+
+      /* CSS:SKILLS-START */
+
+      .section-skills {
+        background: #020617;
+      }
+
+      .skills-placeholder {
+        color: #cbd5f5;
+      }
+
+      /* CSS:SKILLS-END */
+
+      /* CSS:PROJECTS-START */
+
+      .section-projects {
+        background: #020617;
+      }
+
+      .projects-placeholder {
+        color: #cbd5f5;
+      }
+
+      /* CSS:PROJECTS-END */
+
+      /* CSS:CONTACT-START */
+
+      .section-contact {
+        background: #020617;
+      }
+
+      .contact-list {
+        margin-top: 16px;
+        padding-left: 20px;
+      }
+
+      .contact-list li {
+        margin-bottom: 8px;
+      }
+
+      /* CSS:CONTACT-END */
+
+      /* CSS:RWD-START */
+
+      @media (min-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+
+        .about-layout {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+
+        .about-text {
+          order: 2;
+        }
+
+        .about-image {
+          order: 1;
+        }
+      }
+
+      @media (min-width: 1440px) {
+        .hero-title {
+          font-size: 2.6rem;
+        }
+      }
+
+      /* CSS:RWD-END */
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="container nav">
+          <div class="logo">Ginn Lee · Frontend Dev</div>
+
+          <nav class="nav-links">
+            <a class="nav-link" href="#hero">首頁</a>
+            <a class="nav-link" href="#about">關於我</a>
+            <a class="nav-link" href="#skills">技能</a>
+            <a class="nav-link" href="#projects">作品集</a>
+            <a class="nav-link" href="#contact">聯絡我</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <!-- SECTION:HERO-START -->
+        <section id="hero" class="section section-hero">
+          <div class="container hero-grid">
+            <div class="hero-content">
+              <h1 class="hero-title">前端工程師個人品牌網站（Hero 區占位內容）</h1>
+
+              <p class="hero-text">
+                這裡是網站的主視覺區塊，目前為骨架階段的占位內容。未來通常會在這裡放上一句簡短的自我介紹，例如「我是專注於使用
+                HTML、CSS 與現代前端技術打造高品質網站體驗的 Frontend Developer」。
+              </p>
+
+              <p class="hero-text">
+                正式版本通常也會在這裡加入核心職稱、個人品牌定位，以及行動呼籲按鈕，例如「瀏覽作品集」、「查看技能」、「下載履歷」等元素。
+              </p>
+
+              <p class="hero-text">
+                提示給開發者：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
+                程式碼整段貼在這兩個註解中間，完全取代現在這一區。
+              </p>
+            </div>
+
+            <div class="hero-image">
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=872&auto=format&fit=crop"
+                alt="在筆電前撰寫程式碼的前端開發者工作情境"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- SECTION:HERO-END -->
+
+        <!-- SECTION:ABOUT-START -->
+        <section id="about" class="section section-about" aria-labelledby="about-heading">
+          <div class="container about-layout">
+            <div class="about-image">
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=870&auto=format&fit=crop"
+                alt="工程師在電腦前專注撰寫程式碼的工作情境"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="about-text">
+              <h2 id="about-heading" class="section-title">關於我</h2>
+
+              <p>
+                我目前是一名專注於網站介面與使用者體驗的前端工程師，主要使用 HTML、CSS
+                與現代前端技術來建立具有良好結構與可維護性的網站。除了實際開發專案外，我也持續研究前端架構、RWD 設計與
+                UI 排版，讓網站在不同裝置上都能有一致且流暢的體驗。
+              </p>
+
+              <p>
+                我的背景來自於長期的實作與教學經驗，因此在開發過程中特別重視溝通與結構設計。我喜歡把複雜的事情拆解清楚，無論是程式架構、設計邏輯或產品需求，都希望能用清晰的方式呈現與實現。
+              </p>
+
+              <ul class="about-highlights">
+                <li>建立結構清晰、可維護的前端網站架構</li>
+                <li>設計具有良好閱讀體驗與 RWD 的網頁版面</li>
+                <li>協助將想法或設計稿轉換為實際可運作的網站</li>
+              </ul>
+
+              <div class="about-actions">
+                <a class="btn-primary" href="#projects">查看作品集</a>
+                <a class="btn-secondary" href="#contact">聯絡我</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION:ABOUT-END -->
+
+        <!-- SECTION:SKILLS-START -->
+        <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
+          <div class="container">
+            <h2 id="skills-heading" class="section-title">技能（之後會用 Section SDD 替換）</h2>
+
+            <p class="skills-placeholder">
+              這裡目前是 Skills 區塊的占位內容。正式版本通常會列出前端相關技術，例如 HTML、CSS、RWD、UI
+              設計、前端框架、開發工具與版本控制等。
+            </p>
+
+            <p class="skills-placeholder">
+              提示給開發者：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
+              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
+            </p>
+          </div>
+        </section>
+        <!-- SECTION:SKILLS-END -->
+
+        <!-- SECTION:PROJECTS-START -->
+        <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
+          <div class="container">
+            <h2 id="projects-heading" class="section-title">作品集（之後會用 Section SDD 替換）</h2>
+
+            <p class="projects-placeholder">
+              這裡目前是 Projects
+              區塊的占位內容。未來會展示網站專案、產品頁面設計、前端系統介面或其他實際開發案例，並附上簡短說明與連結。
+            </p>
+
+            <p class="projects-placeholder">
+              提示給開發者：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
+              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
+            </p>
+          </div>
+        </section>
+        <!-- SECTION:PROJECTS-END -->
+
+        <!-- SECTION:CONTACT-START -->
+        <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+          <div class="container">
+            <h2 id="contact-heading" class="section-title">聯絡我（之後會用 Section SDD 替換）</h2>
+
+            <p>
+              這裡目前是 Contact 區塊的占位內容。正式版本通常會提供
+              Email、社群平台或合作聯絡方式，方便企業或合作夥伴快速聯繫。
+            </p>
+
+            <p>
+              提示給開發者：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
+              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
+            </p>
+
+            <ul class="contact-list">
+              <li>Email：<a href="mailto:hello@example.com">hello@example.com</a></li>
+              <li>電話：<a href="tel:+886900000000">+886 900 000 000</a></li>
+              <li>GitHub：<a href="https://github.com/yourname">https://github.com/yourname</a></li>
+              <li>LinkedIn：<a href="https://www.linkedin.com/in/yourname">https://www.linkedin.com/in/yourname</a></li>
+            </ul>
+          </div>
+        </section>
+        <!-- SECTION:CONTACT-END -->
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p>© 2026 Ginn Lee · Frontend Developer. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
